@@ -30,6 +30,7 @@ public class BrowserTest {
 
     @After
     public void finish() {
+        System.out.println();
         chromeDriver.quit();
         chromeDriver = null;
     }
