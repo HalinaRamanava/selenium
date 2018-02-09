@@ -14,7 +14,7 @@ public class BrowserTest {
     private Properties properties = new Properties();
     private WebDriver chromeDriver;
 
-    public static final String PROP_FILE = "/drivers.properties";
+    private static final String PROP_FILE = "/drivers.properties";
 
     @Before
     public void init() throws IOException {
@@ -30,7 +30,6 @@ public class BrowserTest {
 
     @After
     public void finish() {
-        System.out.println();
         chromeDriver.quit();
         chromeDriver = null;
     }
