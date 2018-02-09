@@ -3,6 +3,7 @@ package org.artezio.lesson1;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -21,6 +22,7 @@ public class BrowserTest {
         properties.load(BrowserTest.class.getResourceAsStream(PROP_FILE));
         properties.stringPropertyNames().forEach(propName -> System.setProperty(propName, properties.getProperty(propName)));
         chromeDriver = new ChromeDriver();
+        System.out.println(((HasCapabilities) chromeDriver).getCapabilities());
     }
 
     @Test
