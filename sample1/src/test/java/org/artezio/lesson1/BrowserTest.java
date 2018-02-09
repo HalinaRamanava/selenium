@@ -22,7 +22,6 @@ public class BrowserTest {
         properties.load(BrowserTest.class.getResourceAsStream(PROP_FILE));
         properties.stringPropertyNames().forEach(propName -> System.setProperty(propName, properties.getProperty(propName)));
         chromeDriver = new ChromeDriver();
-        System.out.println(((HasCapabilities) chromeDriver).getCapabilities());
     }
 
     @Test
