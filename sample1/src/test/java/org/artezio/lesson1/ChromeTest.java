@@ -2,11 +2,8 @@ package org.artezio.lesson1;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.util.Set;
 
 public class ChromeTest extends BaseTest {
 

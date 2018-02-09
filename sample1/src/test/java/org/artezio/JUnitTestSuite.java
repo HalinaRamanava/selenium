@@ -1,5 +1,6 @@
 package org.artezio;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
@@ -12,6 +13,7 @@ import ru.stqa.selenium.factory.WebDriverPool;
 
 @RunWith(Suite.class)
 @SuiteClasses({SampleJUnitTest.class})
+@Ignore
 public class JUnitTestSuite {
 
   @Rule
