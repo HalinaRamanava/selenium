@@ -39,4 +39,11 @@ public class ChromeTest extends BaseTest {
         Assert.assertNotNull(logo);
     }
 
+    @Test
+    public void onlinerButtonTest() {
+        navigate("https://www.onliner.by/");
+        WebElement button = getDriver().findElement(By.cssSelector("div#userbar .auth-bar__item--text"));
+        Assert.assertTrue("Вход".compareTo(button.getAttribute("textContent").trim()) == 0);
+    }
+
 }
