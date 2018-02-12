@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     private static final String PROP_FILE = "/drivers.properties";
 
@@ -24,7 +25,7 @@ public class BaseTest {
             throw new RuntimeException("Ошибка при загрузке системных опций");
         }
         driver = BrowserFactory.createDriver(browserName, desiredCapabilities);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 5);
     }
 
     protected void init(String browserName) {
@@ -38,6 +39,10 @@ public class BaseTest {
 
     protected WebDriver getDriver() {
         return driver;
+    }
+
+    protected WebDriverWait getWait() {
+        return wait;
     }
 
     public void navigate(String url) {

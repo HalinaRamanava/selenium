@@ -1,5 +1,6 @@
 package org.artezio.lesson1;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -24,10 +25,18 @@ public class ChromeTest extends BaseTest {
     }
 
     @Test
-    public void onlinerSearchStrigTest() {
+    public void onlinerSearchStringTest() {
         navigate("https://www.onliner.by/");
         WebElement searchInput = getDriver().findElement(By.cssSelector("div.g-top-i input.fast-search__input"));
         System.out.println(searchInput.getText());
+    }
+
+    @Test
+    public void onlinerLogoTest() {
+        navigate("https://www.onliner.by/");
+        WebElement header = getWait().until(webDriver -> webDriver.findElement(By.cssSelector("div.b-top-actions div.g-top-i")));
+        WebElement logo = header.findElement(By.className("b-top-logo"));
+        Assert.assertNotNull(logo);
     }
 
 }
