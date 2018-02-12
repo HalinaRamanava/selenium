@@ -7,11 +7,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
     private WebDriver driver;
-    private WebDriverWait webDriverWait;
 
     private static final String PROP_FILE = "/drivers.properties";
 
@@ -24,7 +24,7 @@ public class BaseTest {
             throw new RuntimeException("Ошибка при загрузке системных опций");
         }
         driver = BrowserFactory.createDriver(browserName, desiredCapabilities);
-        webDriverWait = new WebDriverWait(driver, 10);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
     protected void init(String browserName) {
