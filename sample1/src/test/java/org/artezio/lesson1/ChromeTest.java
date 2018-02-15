@@ -57,7 +57,7 @@ public class ChromeTest extends BaseTest {
         WebElement searchString = getWait().until(webDriver -> webDriver.findElement(By.cssSelector("div.g-top-i input.fast-search__input")));
         getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         searchString.sendKeys(HELLO_WORLD);
-        System.out.println(searchString.getAttribute("textContent"));
+        assertString(HELLO_WORLD, searchString.getAttribute("value"));
     }
 
 }
