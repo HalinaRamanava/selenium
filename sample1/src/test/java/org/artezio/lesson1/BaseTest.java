@@ -1,6 +1,7 @@
 package org.artezio.lesson1;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -47,5 +48,9 @@ public class BaseTest {
 
     public void navigate(String url) {
         driver.navigate().to(url);
+    }
+
+    public void assertString(String s1, String s2) {
+        Assert.assertTrue(s1.trim().compareTo(s2.trim()) == 0);
     }
 }
