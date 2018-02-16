@@ -64,4 +64,11 @@ public class ChromeTest extends BaseTest {
         Assert.assertTrue(Boolean.valueOf(childGroup.getAttribute("selected")));
     }
 
+    @Test
+    public void cssTest() {
+        navigate("https://www.booking.com");
+        WebElement flag = getWait().until(webDriver -> webDriver.findElement(By.cssSelector("a#b_tt_holder_1")));
+        System.out.println(flag.getCssValue("color"));
+    }
+
 }
