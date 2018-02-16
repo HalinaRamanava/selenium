@@ -12,6 +12,7 @@ public class ChromeTest extends BaseTest {
 
     private static final String ONLINER_BY = "https://www.onliner.by/";
     private static final String HELLO_WORLD = "Hello motherfucker";
+    private static final String BOOKING_COM = "https://www.booking.com";
 
     @Before
     public void init() {
@@ -59,16 +60,24 @@ public class ChromeTest extends BaseTest {
 
     @Test
     public void bookingTest() {
-        navigate("https://www.booking.com");
+        navigate(BOOKING_COM);
         WebElement childGroup = getWait().until(webDriver -> webDriver.findElement(By.cssSelector("select#group_children option[value='0']")));
         Assert.assertTrue(Boolean.valueOf(childGroup.getAttribute("selected")));
     }
 
     @Test
     public void cssTest() {
-        navigate("https://www.booking.com");
+        navigate(BOOKING_COM);
         WebElement flag = getWait().until(webDriver -> webDriver.findElement(By.cssSelector("a#b_tt_holder_1")));
         System.out.println(flag.getCssValue("color"));
+    }
+
+    @Test
+    public void sizeTest() {
+        navigate(BOOKING_COM);
+        WebElement flag = getWait().until(webDriver -> webDriver.findElement(By.cssSelector("a#b_tt_holder_1")));
+        System.out.println(flag.getLocation());
+        System.out.println(flag.getSize());
     }
 
 }
