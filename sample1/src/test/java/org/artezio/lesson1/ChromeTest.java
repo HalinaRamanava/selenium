@@ -8,8 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.concurrent.TimeUnit;
-
 public class ChromeTest extends BaseTest {
 
     private static final String ONLINER_BY = "https://www.onliner.by/";
@@ -55,9 +53,15 @@ public class ChromeTest extends BaseTest {
     public void onlinerInputTextTest() {
         navigate(ONLINER_BY);
         WebElement searchString = getWait().until(webDriver -> webDriver.findElement(By.cssSelector("div.g-top-i input.fast-search__input")));
-        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         searchString.sendKeys(HELLO_WORLD);
         assertString(HELLO_WORLD, searchString.getAttribute("value"));
+    }
+
+    @Test
+    public void bookingTest() {
+        navigate("https://www.booking.com");
+        WebElement childGroup = getWait().until(webDriver -> webDriver.findElement(By.cssSelector("select#group_children option[value='0']")));
+        Assert.assertTrue(Boolean.valueOf(childGroup.getAttribute("selected")));
     }
 
 }
